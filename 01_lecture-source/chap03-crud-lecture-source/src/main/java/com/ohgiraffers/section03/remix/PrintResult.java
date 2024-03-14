@@ -1,4 +1,6 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section03.remix;
+
+
 
 import java.util.List;
 
@@ -27,7 +29,6 @@ public class PrintResult {
             case "selectOne" : errorMessage = "메뉴 코드로 메뉴 조회를 실패했습니다..."; break;
             case "insert" : errorMessage = "신규 메뉴 등록에 실패했습니다..."; break;
             case "update" : errorMessage = "메뉴 변경에 실패했습니다..."; break;
-            case "delete" : errorMessage = " 메뉴 삭제에 실패했습니다..."; break;
         }
 
         System.out.println(errorMessage);
@@ -44,7 +45,6 @@ public class PrintResult {
         switch (successCode){
             case "insert" : successMessage = "신규 메뉴 등록을 성공하였습니다!!!"; break;
             case "update" : successMessage = "메뉴 변경에 성공하였습니다!!!!"; break;
-            case "delete" : successMessage = "메뉴 삭제에 성공하였습니다!!!"; break;
         }
 
         System.out.println(successMessage);

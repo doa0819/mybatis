@@ -1,4 +1,4 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section02.javaconfig;
 
 /* 필기.
  *   Controller 의 역할
@@ -8,27 +8,30 @@ package com.ohgiraffers.section01.xmlconfig;
  *   또한 호출한 수행 결과를 반환 받아 어떠한 뷰를 다시 사용자에게 보여줄 것인지를 결정하는 역할을 한다.*/
 
 
+
+
 import java.util.List;
 import java.util.Map;
 
 public class MenuController {
 
     private final MenuService menuService;
-    private final PrintResult printResult;
-
-    public MenuController() {
+    private  final PrintResult printResult;
+    public MenuController(){
         this.menuService = new MenuService();
         this.printResult = new PrintResult();
     }
+
+
 
 
     public void selectAllMenu() {
 
         List<MenuDTO> menuList = menuService.selectAllMenu();
 
-        if (menuList != null) {
-            printResult.printMenuList(menuList);
-        } else {
+        if (menuList != null){
+           printResult.printMenuList(menuList);
+        }else {
             printResult.printErrorMessage("selectList");
         }
     }
@@ -40,9 +43,9 @@ public class MenuController {
 
         MenuDTO menu = menuService.selectMenuByCode(code);
 
-        if (menu != null) {
-            printResult.printMenu(menu);
-        } else {
+        if (menu != null){
+//            printResult.printMenu(menu);
+        }else {
             printResult.printErrorMessage("selectOne");
         }
 
@@ -61,7 +64,7 @@ public class MenuController {
 
         if (menuService.registMenu(menu)) {
             printResult.printSuccessMessage("insert");
-        } else {
+        }else {
             printResult.printErrorMessage("insert");
         }
 
@@ -81,28 +84,13 @@ public class MenuController {
         menu.setPrice(price);
         menu.setCategoryCode(categoryCode);
 
-        if (menuService.editMenu(menu)) {
+        if (menuService.editMenu(menu)){
             printResult.printSuccessMessage("update");
-        } else {
+        }else {
             printResult.printErrorMessage("update");
         }
 
 
-    }
-
-    public void deleteMenu(Map<String, String> parameter) {
-
-        int code = Integer.parseInt(parameter.get("code"));
-
-        MenuDTO menu = menuService.selectMenuByCode(code);
-
-
-        if (menu != null) {
-            printResult.printMenu(menu);
-        } else {
-            printResult.printErrorMessage("selectOne");
-
-        }
     }
 }
 

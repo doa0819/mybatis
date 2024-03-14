@@ -1,6 +1,7 @@
-package com.ohgiraffers.section01.xmlconfig;
+package com.ohgiraffers.section02.javaconfig;
 
-import java.awt.*;
+
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -41,23 +42,13 @@ public class Application {
                 case  2 : menuController.selectMenuByCode(inputMenuCode()); break;
                 case  3 : menuController.registMenu(inputMenu()); break;
                 case  4 : menuController.editMenu(inputEdit()); break;
-                case  5 : menuController.deleteMenu(inputdelet()); break;
+//                case  5 : menuController.deleteMenu(inputMenuCode()); break;
                 default:
                     System.out.println("잘못된 메뉴를 입력하셨습니다."); break;
             }
 
         } while(true);
 
-    }
-
-    private static Map<String ,String> inputdelet() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("삭제할 메뉴 코드를 입력하세요 : ");
-        String code =sc.nextLine();
-
-        Map<String,String> parameter = new HashMap<>();
-        parameter.put("code",code);
-        return parameter;
     }
 
     private static Map<String,String> inputEdit() {

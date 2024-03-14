@@ -1,5 +1,6 @@
 package com.ohgiraffers.section01.xmlconfig;
 
+import com.ohgiraffers.section03.remix.MenuMapper;
 import org.apache.ibatis.session.SqlSession;
 
 import java.util.List;
@@ -25,5 +26,9 @@ public class MenuDAO {
     public int updateMenu(SqlSession sqlSession, MenuDTO menu) {
 
         return sqlSession.update("MenuMapper.updateMenu",menu);
+    }
+
+    public int deleteMenu(SqlSession sqlSession, int code) {
+        return sqlSession.delete(MenuMapper.deleteMenu,menu);
     }
 }
